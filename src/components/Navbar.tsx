@@ -8,44 +8,47 @@ import {
   User,
   Heart,
 } from '@phosphor-icons/react'
-import { useState } from 'react'
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
-    <nav className='bg-color-secondary px-4 py-2'>
+    <>
       {/* topbar */}
-      <div className='hidden md:flex justify-between items-center'>
-        <div className='flex items-center space-x-4'>
-          <Link href='/' className='text-white hover:text-color-accent'>
-            Cinemapedia
-          </Link>
-        </div>
-        <div className='flex items-center space-x-4'>
-          <Link href='/' className='text-white hover:text-color-accent'>
-            Home
-          </Link>
-          <Link href='/favorite' className='text-white hover:text-color-accent'>
-            Favorite
-          </Link>
-          <Link href='/about' className='text-white hover:text-color-accent'>
-            About
-          </Link>
+      <div className='w-screen'>
+        <div className='bg-color-secondary px-4 py-2 md:flex justify-between items-center hidden'>
+          <div className='flex items-center space-x-4'>
+            <Link href='/' className='text-white hover:text-color-accent'>
+              Cinemapedia
+            </Link>
+          </div>
+          <div className='flex items-center space-x-4'>
+            <Link href='/' className='text-white hover:text-color-accent'>
+              Home
+            </Link>
+            <Link
+              href='/favorite'
+              className='text-white hover:text-color-accent'
+            >
+              Favorite
+            </Link>
+            <Link href='/about' className='text-white hover:text-color-accent'>
+              About
+            </Link>
 
-          <InputSearch />
+            <InputSearch />
 
-          <Link
-            href='/auth/login'
-            className='text-color-accent hover:opacity-80 border border-color-accent py-2 px-4 rounded-full'
-          >
-            Login
-          </Link>
-          <Link
-            href='/auth/register'
-            className='bg-color-accent text-color-primary hover:opacity-80 py-2 px-4 rounded-full'
-          >
-            Register
-          </Link>
+            <Link
+              href='/auth/login'
+              className='text-color-accent hover:opacity-80 border border-color-accent py-2 px-4 rounded-full'
+            >
+              Login
+            </Link>
+            <Link
+              href='/auth/register'
+              className='bg-color-accent text-color-primary hover:opacity-80 py-2 px-4 rounded-full'
+            >
+              Register
+            </Link>
+          </div>
         </div>
       </div>
       {/* bottombar */}
@@ -81,7 +84,7 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-    </nav>
+    </>
   )
 }
 
