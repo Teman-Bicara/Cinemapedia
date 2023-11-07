@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h5 className='text-lg font-bold mb-2'>Bioskop Online Apps</h5>
+            <h5 className='text-lg font-bold mb-2'>Cinemapedia</h5>
             <div className='flex space-x-2 gap-4'>
               <Link
                 href='#'

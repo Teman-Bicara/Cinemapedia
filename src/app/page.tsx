@@ -1,8 +1,18 @@
+import Hero from '@/components/Hero'
+import MovieList from '@/components/MovieList'
+
 const Page = () => {
   return (
-    <div className='w-screen h-screen mx-auto flex flex-col items-center justify-center bg-color-primary'>
-      <h1 className='text-3xl text-color-accent'>Coming Soon!</h1>
-      <span className='text-xl text-white'>Cinemapedia</span>
+    <div className='bg-color-primary'>
+      <Hero />
+      <section>
+        <h2 className='text-3xl font-bold text-white'>Top Movie</h2>
+        <MovieList />
+      </section>
+      <section className='mt-4'>
+        <h2 className='text-3xl font-bold text-white'>Recommendation Movie</h2>
+        <MovieList />
+      </section>
     </div>
   )
 }
