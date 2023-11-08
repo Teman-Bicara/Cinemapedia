@@ -1,6 +1,9 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 const Hero = () => {
   const banners = [
     {
@@ -15,20 +18,29 @@ const Hero = () => {
       imageUrl: 'https://picsum.photos/1920/1080',
       alt: 'Banner 2',
     },
-    // Add more banner objects as needed
   ]
   return (
     <Swiper
       spaceBetween={50}
       slidesPerView={1}
-      loop={true} // Enable looping
+      centeredSlides={true}
+      loop={true}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      navigation={true}
+      modules={[Autoplay, Pagination, Navigation]}
       onSlideChange={() => console.log('slide change')}
       onSwiper={(swiper) => console.log(swiper)}
     >
       {banners.map((banner, index) => (
         <SwiperSlide key={index}>
           <div
-            className='h-96 flex items-center justify-center mb-10'
+            className='h-96 flex items-center justify-center mb-10 rounded-xl mt-4 mx-5'
             style={{
               backgroundImage: `url('${banner.imageUrl}')`,
               backgroundSize: 'cover',

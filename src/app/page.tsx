@@ -6,11 +6,11 @@ const Page = () => {
     <div className='bg-color-primary'>
       <Hero />
       <section>
-        <h2 className='text-3xl font-bold text-white'>Top Movie</h2>
+        <h2 className='text-xl font-bold text-white'>Top Movie</h2>
         <MovieList />
       </section>
       <section className='mt-4'>
-        <h2 className='text-3xl font-bold text-white'>Recommendation Movie</h2>
+        <h2 className='text-xl font-bold text-white'>Recommendation Movie</h2>
         <MovieList />
       </section>
     </div>

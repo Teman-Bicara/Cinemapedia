@@ -1,6 +1,8 @@
 'use client'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+import 'swiper/css/navigation'
 import 'swiper/css'
 
 const MovieList = () => {
@@ -82,7 +84,16 @@ const MovieList = () => {
   }
 
   return (
-    <Swiper spaceBetween={50} slidesPerView={1} loop={true}>
+    <Swiper
+      spaceBetween={50}
+      slidesPerView={1}
+      loop={true}
+      pagination={{
+        clickable: true,
+      }}
+      navigation={true}
+      modules={[Navigation]}
+    >
       {movieSlides.map((slideMovies, index) => (
         <SwiperSlide key={index}>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4'>
