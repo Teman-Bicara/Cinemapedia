@@ -1,16 +1,17 @@
+import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import MovieList from '@/components/MovieList'
 
 const Page = () => {
   return (
-    <div className='bg-color-primary'>
+    <div className='bg-color-primary gap-4'>
       <Hero />
       <section>
-        <h2 className='text-xl font-bold text-white'>Top Movie</h2>
+        <Header title='Trending Now' linkHref='/' linkTitle='See All' />
         <MovieList />
       </section>
-      <section className='mt-4'>
-        <h2 className='text-xl font-bold text-white'>Recommendation Movie</h2>
+      <section>
+        <Header title='Recommendations' linkHref='/' linkTitle='See All' />
         <MovieList />
       </section>
     </div>

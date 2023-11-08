@@ -1,9 +1,9 @@
 'use client'
 import Image from 'next/image'
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
-import 'swiper/css/navigation'
-import 'swiper/css'
+import Link from 'next/link'
 
 const MovieList = () => {
   const movies = [
@@ -77,11 +77,6 @@ const MovieList = () => {
       rating: 8.0,
     },
   ]
-  const moviesPerSlide = 5
-  const movieSlides = []
-  for (let i = 0; i < movies.length; i += moviesPerSlide) {
-    movieSlides.push(movies.slice(i, i + moviesPerSlide))
-  }
 
   return (
     <Swiper
@@ -93,27 +88,40 @@ const MovieList = () => {
       }}
       navigation={true}
       modules={[Navigation]}
+      breakpoints={{
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 15,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 20,
+        },
+      }}
     >
-      {movieSlides.map((slideMovies, index) => (
-        <SwiperSlide key={index}>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4'>
-            {slideMovies.map((movie) => (
-              <div key={movie.id} className='flex flex-col items-center'>
-                <Image
-                  src='https://placehold.co/100x100.png'
-                  alt='Movie poster'
-                  width={100}
-                  height={100}
-                  className='w-full h-auto'
-                />
-                <div className='text-center mt-2'>
-                  <h3 className='text-md font-bold'>{movie.title}</h3>
-                  <p className='text-xs text-gray-600'>{movie.description}</p>
-                  <span className='bg-yellow-400 text-white text-xs font-semibold px-2.5 py-0.5 rounded'>{`Rating: ${movie.rating}`}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+      {movies.map((movie) => (
+        <SwiperSlide key={movie.id}>
+          <Link
+            href={`/movie/${movie.id}`}
+            className='flex flex-col items-center mb-10 p-4 hover:scale-[1.05] hover:transition-all'
+          >
+            <Image
+              src='https://placehold.co/100x100.png'
+              alt='Movie poster'
+              width={100}
+              height={100}
+              className='w-full h-auto'
+            />
+            <div className='text-center mt-2'>
+              <h3 className='text-md font-bold text-white hover:text-color-accent'>
+                {movie.title}
+              </h3>
+            </div>
+          </Link>
         </SwiperSlide>
       ))}
     </Swiper>

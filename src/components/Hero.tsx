@@ -1,9 +1,8 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
+import Link from 'next/link'
+
 const Hero = () => {
   const banners = [
     {
@@ -21,7 +20,7 @@ const Hero = () => {
   ]
   return (
     <Swiper
-      spaceBetween={50}
+      spaceBetween={30}
       slidesPerView={1}
       centeredSlides={true}
       loop={true}
@@ -34,31 +33,26 @@ const Hero = () => {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
     >
       {banners.map((banner, index) => (
         <SwiperSlide key={index}>
           <div
-            className='h-96 flex items-center justify-center mb-10 rounded-xl mt-4 mx-5'
-            style={{
-              backgroundImage: `url('${banner.imageUrl}')`,
-              backgroundSize: 'cover',
-            }}
+            className='flex items-center justify-center h-full md:h-96 mb-10 rounded-xl mt-4 mx-5 bg-cover bg-center'
+            style={{ backgroundImage: `url('${banner.imageUrl}')` }}
           >
-            <div className='text-white text-center'>
-              <p className='text-lg md:text-xl font-bold uppercase'>
+            <div className='text-white text-center p-4 md:p-8'>
+              <p className='text-md md:text-lg lg:text-xl font-bold uppercase'>
                 {banner.title}
               </p>
-              <p className='text-3xl md:text-5xl font-bold my-6'>
+              <p className='text-xl md:text-2xl lg:text-4xl font-bold my-4 md:my-6'>
                 {banner.subtitle}
               </p>
-              <a
-                href='#'
-                className='bg-red-500 py-4 px-8 text-sm font-bold uppercase rounded hover:bg-red-600 transition duration-150 ease-in-out'
+              <Link
+                href='/'
+                className='inline-block bg-red-500 py-2 md:py-3 px-4 md:px-6 text-xs md:text-sm font-bold uppercase rounded hover:bg-red-600 transition duration-150 ease-in-out'
               >
                 Explore Now
-              </a>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
